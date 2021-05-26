@@ -74,7 +74,6 @@ public class Main {
         } catch (Exception exWriteExcelFile) {
             System.out.println("Error in writeExcelFileData()");
             System.out.println("Error details: " + exWriteExcelFile.toString());
-            System.out.println("Penis");
         }
     }
 }
