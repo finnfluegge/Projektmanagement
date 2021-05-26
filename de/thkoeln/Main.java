@@ -3,7 +3,9 @@ package de.thkoeln;
 import org.apache.poi.ss.usermodel.*;
 import javax.swing.JFileChooser;
 import java.io.File;
+
 public class Main {
+
     public static void main(String[] args) {
         try {
             // Variables
@@ -72,6 +74,7 @@ public class Main {
         } catch (Exception exWriteExcelFile) {
             System.out.println("Error in writeExcelFileData()");
             System.out.println("Error details: " + exWriteExcelFile.toString());
+            System.out.println("Penis");
         }
-    } int Finn;
+    }
 }
