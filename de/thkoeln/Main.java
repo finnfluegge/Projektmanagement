@@ -110,6 +110,8 @@ class Main {
 
     private static void writeExcelFileData(String filename, List<Row> rows, int startRow){
         try {
+            double Kabine = 0;
+            int c = 0;
             Workbook workbook = WorkbookFactory.create(new File("F:\\UNI\\AA SoSe 2021\\Projektmanagement 2\\PMII_Modell_v1\\ProductionSheet Template.xlsx"));
             Sheet sheet = workbook.getSheet("Input");
             for (int i = 0; i < rows.size(); i++)
@@ -120,23 +122,35 @@ class Main {
                 //String Gelb = rows.get(0).getCell(25).getStringCellValue();
                 //String Grün = rows.get(0).getCell(26).getStringCellValue();
                 //String Rot = rows.get(0).getCell(27).getStringCellValue();
-                if(0<=i && i<22)
+                //if(0<=i && i<22)
+                if(Farbe.equals("Blau"))
                 {
                     rows.get(i).getCell(3).setCellValue(1);
+                    Kabine = Kabine+rows.get(i).getCell(14).getNumericCellValue();
+                    c++;
+                    if (Kabine>=30)
+                    {
+                        //for(int cc = c; c>0; c--)
+                        //{
+                        rows.get(i/*-c*/).getCell(5).setCellValue(Kabine);
+                        //}
+                        Kabine = 0;
+                    }
+
                 }
-                else if(21<i && i<56)
+                else if(Farbe.equals("Gelb"))
                 {
                     rows.get(i).getCell(3).setCellValue(2);
                 }
-                else if(55<i && i<84)
+                else if(Farbe.equals("Grün"))
                 {
                     rows.get(i).getCell(3).setCellValue(1);
                 }
-                else if(83<i && i<121)
+                else if(Farbe.equals("Rot"))
                 {
                     rows.get(i).getCell(3).setCellValue(2);
                 }
-                System.out.println(Farbe);
+
                 Row row = sheet.createRow(i + startRow);
                 for (int x = 0; x < rows.get(i).getPhysicalNumberOfCells(); x++)
                 {
